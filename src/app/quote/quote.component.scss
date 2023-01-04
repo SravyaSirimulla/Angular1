@@ -1,0 +1,52 @@
+.quote {
+  margin: 10px;
+  margin-top: 80px;
+}
+
+.quote-id {
+  display: flex;
+
+  .quote-id-item {
+    margin-left: 20px;
+  }
+
+  .form-check-label {
+    margin-left: 5px;
+  }
+}
+
+.btn {
+  height: 30px;
+  line-height: 10px;
+}
+
+.input-box {
+  width: 250px;
+  height: 30px;
+}
+
+.ship-options {
+
+  .shipping-selector {
+    display: flex;
+  }
+
+  .drop-down {
+    width: 250px;
+    height: 35px;
+    margin-right: 20px;
+    font-size: 15px;
+  }
+}
+
+.total {
+  font-size: 30px;
+}
+
+.tax-input {
+  display: flex;
+
+  .tax-input-box {
+    margin-right: 20px;
+  }
+}

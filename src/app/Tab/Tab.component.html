@@ -1,0 +1,10 @@
+<ul class='tabs-conatiner'>
+  <li (click)="onTabClick('Home')" [class.active]="activeTab=='Home'" class="tab-link">Home</li>
+  <li (click)="onTabClick('Quotes')" [class.active]="activeTab=='Quotes'" class="tab-link">Quotes</li>
+  <li (click)="onTabClick('Orders')" [class.active]="activeTab=='Orders'" class="tab-link">Orders</li>
+  <li (click)="onTabClick('Purchase orders')" [class.active]="activeTab=='Purchase orders'" class="tab-link">Purchase orders</li>
+</ul>
+<div *ngIf="activeTab=='Home'" class="w-100">Home</div>
+<div *ngIf="activeTab=='Quotes'" class="w-100">Quotes</div>
+<div *ngIf="activeTab=='Orders'" class="w-100">Orders</div>
+<div *ngIf="activeTab=='Purchase orders'" class="w-100">Purchase orders</div>

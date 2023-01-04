@@ -1,0 +1,107 @@
+<div class="quote">
+  <form>
+    <div class="form-group">
+      <label for="quote-id">Quote Id</label>
+      <div class="quote-id">
+        <input type="quote-id" class="form-control input-box" id="quote-id" #id value={{quoteId}}>
+        <button class="btn btn-primary quote-id-item"
+          (click)="getQuote(id)"
+          type="button">
+          Load Quote
+        </button>
+        <input type="checkbox"
+          class="form-check-input quote-id-item"
+          (change)="toggleQuote()"
+          [checked]="isDfn"
+          id="dfnCheck">
+        <label for="dfnCheck" class="form-check-label"> DFN view </label>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="accountNum">Account Number</label>
+      <input type="accountNum" class="form-control input-box" id="accountNum" value={{quote.accountNumber}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="customerNum">Customer Number</label>
+      <input type="customerNum" class="form-control input-box" id="customerNum" value={{quote.customerNumber}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="accountName">Account Name</label>
+      <input type="accountName" class="form-control input-box" id="accountName" value={{quote.accountName}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="customerName">Customer Name</label>
+      <input type="customerName" class="form-control input-box" id="customerName" value={{quote.customerName}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="products">Products</label>
+      <input type="products" class="form-control input-box" id="products" value={{products}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="billToAddr">Bill To Address</label>
+      <input type="billToAddr" class="form-control input-box" id="billToAddr" value={{quote.billToAddress}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="soldToAddr">Sold To Address</label>
+      <input type="soldToAddr" class="form-control input-box" id="soldToAddr" value={{quote.soldToAddress}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="installAtAddr">Install At Address</label>
+      <input type="installAtAddr" class="form-control input-box" id="installAtAddr" value={{quote.installAtAddress}}>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="shipToAddr">Ship To Address</label>
+      <input type="shipToAddr" class="form-control input-box" id="shipToAddr" value={{quote.shipToAddress}}>
+    </div>
+    <br>
+    <div class="form-group ship-options" *ngIf="isDfn == true">
+      <label for="shipOptions">Shipping Options</label>
+      <br>
+      <div class="shipping-selector">
+        <select name="shipOptions"
+          id="shipOptionsDropDown"
+          class="drop-down form-control"
+          ngModel
+          #shippingOption
+          *ngIf="showShipping==true"
+          (change)="updateShipping(shippingOption.value)">
+          <option value=""></option>
+          <option *ngFor="let shipping of shippingOptions" [value]="shipping.type">{{shipping.type}}</option>
+        </select>
+        <button class="btn btn-primary" type="button" (click)="showShipping=true">Get Shipping Options</button>
+      </div>
+      <br>
+    </div>
+    <div class="form-group" *ngIf="isDfn == true">
+      <label for="tax">Tax</label>
+      <br>
+      <div class="tax-input">
+        <input type="text" class="form-control input-box tax-input-box" *ngIf="showTax==true" [value]="tax">
+        <button class="btn btn-primary" type="button" (click)="showTax=true; tax=12.99">Get Tax</button>
+      </div>
+      <br>
+    </div>
+    <div class="form-group">
+      Subtotal: ${{subtotal}}
+      <br>
+      Tax: ${{tax}}
+      <br>
+      Shipping: ${{shippingCost}}
+      <br>
+      <div class="total">
+        Total: ${{subtotal + shippingCost + tax}}
+      </div>
+    </div>
+    <br>
+  </form>
+</div>
+

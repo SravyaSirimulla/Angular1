@@ -1,0 +1,10 @@
+---
+applications:
+- name: quote-frontend-app
+  instances: 1
+  memory: 500MB
+  disk-quote: 500MB
+  buildpacks:
+   - dicf_staticfile_buildpack_latest
+  stack: cflinuxfs3
+  health-check-type: port
